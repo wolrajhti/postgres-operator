@@ -19,6 +19,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Login to GHCR with buildah
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | buildah login ghcr.io -u ${{ github.actor }} --password-stdin
+
       - name: Build image with make
         run: make build
         working-directory: components/image-pgbackrest
