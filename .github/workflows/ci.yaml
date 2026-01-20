@@ -23,9 +23,7 @@ jobs:
         run: make build
         working-directory: components/image-pgbackrest
         env:
-          BUILDAH: docker
-          BUILDAH_BUILD: docker build
           PGBACKREST_IMAGE: ghcr.io/wolrajhti/pgbackrest:latest
 
       - name: Push image to GHCR
-        run: docker push ghcr.io/wolrajhti/pgbackrest:latest
+        run: buildah push ghcr.io/wolrajhti/pgbackrest:latest
