@@ -26,7 +26,10 @@ jobs:
         run: make build
         working-directory: components/image-pgbackrest
         env:
-          PGBACKREST_IMAGE: ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
+          PGBACKREST_IMAGE: localhost/crunchy-pgbackrest:latest
+
+      - name: Tag image for GHCR
+        run: buildah tag localhost/crunchy-pgbackrest:latest ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
 
       - name: Push image to GHCR
         run: buildah push ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
