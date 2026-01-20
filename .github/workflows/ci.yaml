@@ -26,7 +26,7 @@ jobs:
         run: make build
         working-directory: components/image-pgbackrest
         env:
-          PGBACKREST_IMAGE: ghcr.io/wolrajhti/pgbackrest:latest
+          PGBACKREST_IMAGE: ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
 
       - name: Push image to GHCR
-        run: buildah push ghcr.io/wolrajhti/pgbackrest:latest
+        run: buildah push ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
