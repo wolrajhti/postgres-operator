@@ -29,7 +29,7 @@ jobs:
           PGBACKREST_IMAGE: localhost/crunchy-pgbackrest:latest
 
       - name: Tag image for GHCR
-        run: buildah tag localhost/crunchy-pgbackrest:latest ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
+        run: buildah tag localhost/crunchy-pgbackrest:latest ghcr.io/${{ github.repository }}/pgbackrest:latest
 
       - name: Push image to GHCR
-        run: buildah push ghcr.io/${{ github.repository_owner }}/pgbackrest:latest
+        run: buildah push ghcr.io/${{ github.repository }}/pgbackrest:latest
